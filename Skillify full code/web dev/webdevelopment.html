@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Development Courses</title>
+    <link rel="icon" href="./favicon.png" type="image/png">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f4f8;
+        }
+        .back-button {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+        .back-button:hover {
+            background-color: #0056b3;
+        }
+        .course-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .course-card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            padding: 20px;
+            text-align: center;
+        }
+        .course-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .courseName {
+            font-size: 20px;
+            color: #333;
+            margin: 15px 0;
+        }
+        .course-details {
+            font-size: 14px;
+            color: #555;
+            margin: 5px 0;
+        }
+        .course-price {
+            font-size: 18px;
+            color: #007BFF;
+            margin: 10px 0;
+        }
+        .buy-button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .buy-button:hover {
+            background-color: #218838;
+        }
+        .buy-button:disabled {
+    background-color: #ccc;
+    color: #fff;
+    cursor: not-allowed;
+}
+        h1 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 2.5rem;
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid #007BFF;
+            padding-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Back Button -->
+    <button class="back-button" onclick="goBack()">Back</button>
+    <h1>Explore Web Development Courses</h1>
+    <div class="course-container">
+        <!-- Course 1 -->
+        <div class="course-card">
+            <img src="./webdevelopment/html css.jpg" alt="HTML & CSS Basics">
+            <div class="courseName">HTML & CSS Basics</div>
+            <div class="course-details">Mentor: Mr. Rajesh Patel</div>
+            <div class="course-details">Duration: 2 Weeks</div>
+            <div class="course-details">Key Focus: Layouts, Forms, Styling</div>
+            <div class="course-price">Price: ₹4,999</div>
+            <button class="buy-button" onclick="addToCart('HTML & CSS Basics', 4999)">ADD TO CART</button>
+        </div>
+        <!-- Course 2 -->
+        <div class="course-card">
+            <img src="./webdevelopment/javascript.jpg" alt="Javascript Essentials">
+            <div class="courseName">JavaScript Essentials</div>
+            <div class="course-details">Mentor: Ms. Neha Sharma</div>
+            <div class="course-details">Duration: 1 Month</div>
+            <div class="course-details">Key Focus: ES6, DOM, APIs</div>
+            <div class="course-price">Price: ₹6,999</div>
+            <button class="buy-button" onclick="addToCart('JavaScript Essentials',6999)">ADD TO CART</button>
+        </div>
+        <!-- Course 3 -->
+        <div class="course-card">
+            <img src="./webdevelopment/react.jpg" alt="React Basics">
+            <div class="courseName">React Basics</div>
+            <div class="course-details">Mentor: Mr. Kunal Arora</div>
+            <div class="course-details">Duration: 1.5 Months</div>
+            <div class="course-details">Key Focus: Components, State Management</div>
+            <div class="course-price">Price: ₹9,499</div>
+            <button class="buy-button" onclick="addToCart('React Basics',9499)">ADD TO CART</button>
+        </div>
+        <!-- Course 4 -->
+        <div class="course-card">
+            <img src="./webdevelopment/node-js-736399_640.png" alt="Backend with Node.js">
+            <div class="courseName">Backend with Node.js</div>
+            <div class="course-details">Mentor: Ms. Preeti Verma</div>
+            <div class="course-details">Duration: 2 Months</div>
+            <div class="course-details">Key Focus: REST APIs, MongoDB</div>
+            <div class="course-price">Price: ₹10,499</div>
+            <button class="buy-button" onclick="addToCart('Backend with Node.js',104999)">ADD TO CART</button>
+        </div>
+        <!-- Course 5 -->
+        <div class="course-card">
+            <img src="./webdevelopment/web-1935737_640.png" alt="Full-Stack Development">
+            <div class="courseName">Full-Stack Development</div>
+            <div class="course-details">Mentor: Mr. Saurabh Jain</div>
+            <div class="course-details">Duration: 3 Months</div>
+            <div class="course-details">Key Focus: MERN Stack</div>
+            <div class="course-price">Price: ₹14,999</div>
+            <button class="buy-button" onclick="addToCart('Full-Stack Development',14999 )">ADD TO CART</button>
+        </div>
+        <!-- Course 6 -->
+        <div class="course-card">
+            <img src="./webdevelopment/ui ux.jpg" alt="Web Design & UX">
+            <div class="courseName">Web Design & UX</div>
+            <div class="course-details">Mentor: Ms. Aditi Rao</div>
+            <div class="course-details">Duration: 1.5 Months</div>
+            <div class="course-details">Key Focus: Prototyping, User Experience</div>
+            <div class="course-price">Price: ₹8,999</div>
+            <button class="buy-button" onclick="addToCart('Web Design & UX', 8999)">ADD TO CART</button>
+        </div>
+        <!-- Course 7 -->
+        <div class="course-card">
+            <img src="./webdevelopment/nextjs.png" alt="Next.js Advanced">
+            <div class="courseName">Next.js Advanced</div>
+            <div class="course-details">Mentor: Mr. Akash Tyagi</div>
+            <div class="course-details">Duration: 1 Month</div>
+            <div class="course-details">Key Focus: Server-Side Rendering, Optimization</div>
+            <div class="course-price">Price: ₹11,499</div>
+            <button class="buy-button" onclick="addToCart('Next.js Advanced',11499 )">ADD TO CART</button>
+        </div>
+        <!-- Course 8 -->
+        <div class="course-card">
+            <img src="./webdevelopment/vueJs.png" alt="Vue.js Fundamentals">
+            <div class="courseName">Vue.js Fundamentals</div>
+            <div class="course-details">Mentor: Ms. Shalini Gupta</div>
+            <div class="course-details">Duration: 1.5 Months</div>
+            <div class="course-details">Key Focus: Vue CLI, Components</div>
+            <div class="course-price">Price: ₹10,499</div>
+            <button class="buy-button" onclick="addToCart('Vue.js Fundamentals',10499 )">ADD TO CART</button>
+        </div>
+        <!-- Course 9 -->
+        <div class="course-card">
+            <img src="./webdevelopment/angular.png" alt="Angular Basics">
+            <div class="courseName">Angular Basics</div>
+            <div class="course-details">Mentor: Dr. Nitin Malhotra</div>
+            <div class="course-details">Duration: 1.5 Months</div>
+            <div class="course-details">Key Focus: Components, Routing</div>
+            <div class="course-price">Price: ₹10,999</div>
+            <button class="buy-button" onclick="addToCart('Angular Basics', 10999)">ADD TO CART</button>
+        </div>
+        <!-- Course 10 -->
+        <div class="course-card">
+            <img src="./webdevelopment/web performance.png" alt="Web Performance Optimization">
+            <div class="courseName">Web Performance Optimization</div>
+            <div class="course-details">Mentor: Mr. Rohit Chawla</div>
+            <div class="course-details">Duration: 2 Weeks</div>
+            <div class="course-details">Key Focus: Speed, Lighthouse</div>
+            <div class="course-price">Price: ₹5,499</div>
+            <button class="buy-button" onclick="addToCart('Web Performance Optimization',5499 )">ADD TO CART</button>
+        </div>
+    </div>
+
+   
+    <script>
+        function addToCart(courseName, price) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.push({ courseName, price });
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(`${courseName} has been added to your cart!`);
+            window.location.href = '/cart/cart.html'; 
+        }
+
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>

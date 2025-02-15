@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="icon" href="./favicon.png" type="image/png">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cart-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .cart-item {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            padding: 20px;
+            margin: 10px 0;
+            text-align: center;
+        }
+
+        .cart-item .remove-button {
+            background-color: #dc3545;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .cart-item .remove-button:hover {
+            background-color: #c82333;
+        }
+
+        .cart-item .price {
+            font-size: 18px;
+            color: #007BFF;
+            margin-top: 10px;
+        }
+
+        .total-price {
+            font-size: 20px;
+            font-weight: bold;
+            color: #28a745;
+            margin-top: 20px;
+        }
+
+        .checkout-button {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        .checkout-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Your Cart</h1>
+    <div class="cart-container" id="cartContainer"></div>
+    <button class="checkout-button" onclick="checkout()">Proceed to Checkout</button>
+
+    <script>
+        function loadCart() {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let cartContainer = document.getElementById('cartContainer');
+            cartContainer.innerHTML = ''; // Clear cart container
+            let totalPrice = 0;
+
+            cart.forEach((item, index) => {
+                totalPrice += item.price;
+                let itemDiv = document.createElement('div');
+                itemDiv.classList.add('cart-item');
+                itemDiv.innerHTML = `
+                    <h3>${item.courseName}</h3>
+                    <p class="price">Price: ₹${item.price}</p>
+                    <button class="remove-button" onclick="removeFromCart(${index})">Remove</button>
+                `;
+                cartContainer.appendChild(itemDiv);
+            });
+
+            let totalDiv = document.createElement('div');
+            totalDiv.classList.add('total-price');
+            totalDiv.innerHTML = `Total: ₹${totalPrice}`;
+            cartContainer.appendChild(totalDiv);
+        }
+
+        function removeFromCart(index) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            loadCart();
+        }
+
+        function checkout() {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let totalPrice = cart.reduce((total, item) => total + item.price, 0);
+
+            if (cart.length === 0) {
+                alert('Your cart is empty.');
+                return;
+            }
+
+            // Encode cart and total price for passing to the payment page
+            let cartData = encodeURIComponent(JSON.stringify(cart));
+            let totalPriceData = encodeURIComponent(totalPrice);
+
+            // Redirect to payment page with query parameters
+            window.location.href = `/payment/payment.html?cart=${cartData}&totalPrice=${totalPriceData}`;
+        }
+
+        // Load cart on page load
+        window.onload = loadCart;
+    </script>
+</body>
+
+</html>

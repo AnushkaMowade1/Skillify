@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Skillify</title>
+    <link rel="icon" href="./favicon.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./login.css">
+</head>
+
+<body>
+    <div class="login-box">
+        <h4>Login</h4>
+        <form id="content" method="POST">
+            <label for="email">Email</label><br>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required><br><br>
+
+            <label for="password">Password</label><br>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required><br>
+
+            <div class="forgot-password">
+                <a href="">Forgot Password?</a>
+            </div>
+            <br>
+
+            <button type="submit">Login</button>
+
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("content").addEventListener("submit", function(event) {
+            event.preventDefault();
+            
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+
+            // Retrieve the stored user data from localStorage
+            var user = localStorage.getItem(email);
+
+            if (user) {
+                var parsedUser = JSON.parse(user);
+
+                // Check if the password is correct
+                if (parsedUser.password === password) {
+                    alert("Login successful!");
+                    window.location.href = "index.html"; // Redirect to homepage
+                } else {
+                    alert("Incorrect password! Please try again.");
+                }
+            } else {
+                alert("User not found! Please sign up.");
+            }
+        });
+    </script>
+</body>
+
+</html>

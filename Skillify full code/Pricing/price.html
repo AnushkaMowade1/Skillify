@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>Payment Page</title>
+    <link rel="icon" href="favicon.png" type="image/png">
+    <style>
+        /* General body styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(100deg, #0099ff, #8f47ae);
+            color: #fff;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 3rem;
+            margin: 30px 0;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            background: #ffffff;
+            padding: 50px 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 50px 0;
+        }
+
+        .pricing h2 {
+            font-size: 2.5rem;
+            color: #021d54;
+            margin-bottom: 15px;
+        }
+
+        .pricing p {
+            font-size: 1.1rem;
+            color: #6c757d;
+            margin-bottom: 40px;
+        }
+
+        /* Pricing Cards */
+        .pricing-cards {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            transition: transform 0.3s ease;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            padding: 25px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .card h3 {
+            font-size: 2rem;
+            color: #2a3d66;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            font-size: 1.3rem;
+            color: #17a2b8;
+            margin-bottom: 20px;
+        }
+
+        .card ul {
+            list-style: none;
+            padding: 0;
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .card ul li {
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            background-color: #28a745;
+            color: #fff;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #218838;
+        }
+
+        /* Payment Form */
+        .payment-form {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 50px auto;
+            max-width: 600px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+
+        .payment-form h2 {
+            font-size: 2rem;
+            color: #2a3d66;
+            margin-bottom: 20px;
+        }
+
+        .payment-form input[type="text"],
+        .payment-form input[type="number"],
+        .payment-form input[type="email"] {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+        }
+
+        .payment-form button {
+            width: 100%;
+            padding: 15px;
+            background-color: #28a745;
+            color: white;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .payment-form button:hover {
+            background-color: #218838;
+        }
+
+        /* Additional Features Section */
+        .additional-features {
+            padding: 50px 20px;
+            background: #f4f7fc;
+            text-align: center;
+        }
+
+        .additional-features h2 {
+            font-size: 2.5rem;
+            color: #2a3d66;
+            margin-bottom: 25px;
+        }
+
+        .feature-cards {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .feature-card {
+            background: #fff;
+            padding: 20px;
+            width: 250px;
+            border-radius: 10px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-card h3 {
+            font-size: 1.6rem;
+            color: #2a3d66;
+            margin-bottom: 15px;
+        }
+
+        .feature-card p {
+            color: #6c757d;
+            font-size: 1rem;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            .pricing-cards {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .card {
+                width: 80%;
+                margin-bottom: 20px;
+            }
+
+            .feature-cards {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .feature-card {
+                width: 80%;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Payment Page</h1>
+
+    <!-- Pricing Section -->
+    <section class="pricing">
+        <h2>Choose Your Plan</h2>
+        <p>Affordable pricing for every learner. Get started today!</p>
+
+        <div class="pricing-cards">
+            <!-- Basic Plan -->
+            <div class="card">
+                <h3>Basic Plan</h3>
+                <p>₹499/month</p>
+                <ul>
+                    <li>Access to all basic courses</li>
+                    <li>Community Support</li>
+                    <li>Basic Learning Resources</li>
+                </ul>
+                <button class="btn" onclick="selectPlan('Basic Plan', 499)">Select</button>
+            </div>
+
+            <!-- Standard Plan -->
+            <div class="card">
+                <h3>Standard Plan</h3>
+                <p>₹999/month</p>
+                <ul>
+                    <li>Access to all courses</li>
+                    <li>Personalized Mentorship</li>
+                    <li>Exclusive Webinars</li>
+                    <li>Access to Premium Resources</li>
+                    <li>Certificate of Completion</li>
+                </ul>
+                <button class="btn" onclick="selectPlan('Standard Plan', 999)">Select</button>
+            </div>
+
+            <!-- Premium Plan -->
+            <div class="card">
+                <h3>Premium Plan</h3>
+                <p>₹1499/month</p>
+                <ul>
+                    <li>Unlimited Access to all courses</li>
+                    <li>One-on-One Coaching</li>
+                    <li>24/7 Support</li>
+                    <li>Exclusive Resources & Templates</li>
+                    <li>Free Updates on All Courses</li>
+                    <li>Certificate with Career Counseling</li>
+                </ul>
+                <button class="btn" onclick="selectPlan('Premium Plan', 1499)">Select</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Form Section -->
+    <section class="payment-form" id="paymentForm">
+        <h2>Payment Information</h2>
+        <form id="paymentInfo">
+            <input type="text" id="name" placeholder="Name" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="number" id="cardNumber" placeholder="Card Number" required>
+            <input type="number" id="cvv" placeholder="CVV" required>
+            <button type="submit">Complete Payment</button>
+        </form>
+    </section>
+
+    <!-- Additional Features Section -->
+    <section class="additional-features">
+        <h2>Exclusive Features</h2>
+        <div class="feature-cards">
+            <div class="feature-card">
+                <h3>Priority Support</h3>
+                <p>Get quick answers to your queries with our priority support system.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Premium Resources</h3>
+                <p>Access top-quality learning materials, guides, and templates.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Exclusive Discounts</h3>
+                <p>Get special discounts on future courses and events.</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function selectPlan(plan, price) {
+            document.querySelector('.pricing').style.display = 'none';
+            document.getElementById('paymentForm').style.display = 'block';
+            sessionStorage.setItem('selectedPlan', plan);
+            sessionStorage.setItem('planPrice', price);
+        }
+
+        document.getElementById('paymentInfo').addEventListener('submit', function (e) {
+            e.preventDefault();
+            let name = document.getElementById('name').value;
+            let email = document.getElementById('email').value;
+            let cardNumber = document.getElementById('cardNumber').value;
+            let cvv = document.getElementById('cvv').value;
+
+            alert('Payment Successful!\n' +
+                'Plan: ' + sessionStorage.getItem('selectedPlan') + '\n' +
+                'Price: ₹' + sessionStorage.getItem('planPrice') + '\n' +
+                'Thank you for your payment, ' + name + '!');
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Become a Tutor and Sell Courses</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="tutor.css">
+    <link rel="icon" href="favicon.png" type="image/png">
+</head>
+<body>
+    <header>
+        <h1>Become a <span class="highlight">Tutor</span> and Sell Courses</h1>
+    </header>
+
+    <div class="container">
+        <h2 class="section-title">Our <span class="highlight">Popular Courses</span></h2>
+        <div class="course-list">
+            <div class="course-item"><a href="/courses/datascience.html">Data Science</a></div>
+            <div class="course-item"><a href="/courses/itcertification.html">IT Certifications</a></div>
+            <div class="course-item"><a href="/courses/leadership.html">Leadership</a></div>
+            <div class="course-item"><a href="/courses/webdevelopment.html">Web Development</a></div>
+            <div class="course-item"><a href="/courses/communication.html">Communication</a></div>
+        </div>
+
+        <div class="form-section">
+            <h2 class="section-title">Sign Up to Become a <span class="highlight">Tutor</span></h2>
+            <form id="tutorForm">
+                <input type="text" id="fullName" name="fullName" placeholder="Full Name" required>
+                <input type="email" id="email" name="email" placeholder="Email Address" required>
+                <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
+                <select id="subject" name="subject" required>
+                    <option value="" disabled selected>Select Course You Want to Teach</option>
+                    <option value="Data Science">Data Science</option>
+                    <option value="IT Certifications">IT Certifications</option>
+                    <option value="Leadership">Leadership</option>
+                    <option value="Web Development">Web Development</option>
+                    <option value="Communication">Communication</option>
+                </select>
+                <textarea id="message" name="message" placeholder="Why do you want to become a tutor?" required></textarea>
+                <button type="submit">Submit Application</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('tutorForm');
+
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault(); // Prevent default form submission
+
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries()); // Convert form data to object
+
+            try {
+                const response = await fetch('/submit-application', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data),
+                });
+
+                if (!response.ok) {
+                    throw new Error('Failed to submit the application. Please try again.');
+                }
+
+                const result = await response.json();
+                alert(result.message); // Display server response
+            } catch (error) {
+                alert(error.message); // Display error message
+            }
+        });
+    </script>
+</body>
+</html>
