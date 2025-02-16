@@ -1,0 +1,132 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background: linear-gradient(135deg, #FF6F61, #6A5B8C);
+    color: #fff;
+    text-align: center;
+}
+
+header {
+    background: #333;
+    padding: 30px;
+    border-bottom: 5px solid #FF6F61;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: white;
+    text-transform: uppercase;
+}
+
+.highlight {
+    color: #88ff00;
+    font-weight: bold;
+}
+
+.container {
+    padding: 50px;
+}
+
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-family: 'Anton', sans-serif;
+    color: #fff;
+}
+
+.course-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.course-item {
+    background-color: #4C4C6C;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.course-item:hover {
+    transform: scale(1.05);
+}
+
+.course-item a {
+    color: #FF6F61;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.form-section {
+    background-color: #2C2C3E;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+form input, form select, form textarea, form button {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 10px;
+    border: none;
+    font-size: 1rem;
+}
+
+form input, form select, form textarea {
+    background-color: #555;
+    color: #fff;
+}
+
+form button {
+    background-color: #FF6F61;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #D54C4A;
+}
+
+form textarea {
+    height: 150px;
+    resize: none;
+}
+
+@media (max-width: 768px) {
+    .course-list {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    .section-title {
+        font-size: 1.3rem;
+    }
+
+    .course-item a {
+        font-size: 1.2rem;
+    }
+}

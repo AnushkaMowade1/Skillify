@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Science Courses</title>
+    <link rel="icon" href="favicon.png" type="image/png">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        .back-button {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+        .back-button:hover {
+            background-color: #0056b3;
+        }
+        .course-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-around;
+        }
+        .course-card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            padding: 20px;
+            text-align: center;
+        }
+        .course-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .courseName {
+            font-size: 20px;
+            color: #333;
+            margin: 15px 0;
+        }
+        .course-details {
+            font-size: 14px;
+            color: #555;
+            margin: 5px 0;
+        }
+        .course-price {
+            font-size: 18px;
+            color: #007BFF;
+            margin: 10px 0;
+        }
+        .buy-button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .buy-button:hover {
+            background-color: #218838;
+        }
+        .buy-button:disabled {
+    background-color: #ccc;
+    color: #fff;
+    cursor: not-allowed;
+}
+        h1 {
+        font-family: 'Roboto', sans-serif; /* Professional font */
+        font-size: 2.5rem; /* Scalable and clear size */
+        color: #333; /* Neutral, professional color */
+        text-align: center; /* Center align for focus */
+        margin-bottom: 20px; /* Space below heading */
+        text-transform: uppercase; /* Uppercase for authority */
+        letter-spacing: 1px; /* Slight spacing for clarity */
+        border-bottom: 2px solid #007BFF; /* Subtle underline */
+        padding-bottom: 10px; /* Spacing for underline effect */
+    }
+       
+    </style>
+</head>
+<body>
+    <!-- Back Button -->
+    <button class="back-button" onclick="goBack()">Back</button>
+    <h1>Explore Our Data Science Courses</h1>
+    <div class="course-container">
+        <!-- Course 1 -->
+        <div class="course-card">
+            <img src="ds/Comprehensive Data Science Bootcamp.png" alt="Comprehensive Data Science Bootcamp">
+            <div class="courseName">Comprehensive Data Science Bootcamp</div>
+            <div class="course-details">Mentor: Dr. Anjali Mehta</div>
+            <div class="course-details">Duration: 6 Months (Weekends)</div>
+            <div class="course-details">Key Focus: Python, Machine Learning, Deep Learning</div>
+            <div class="course-price">Price: ₹19,999</div>
+            <button class="buy-button"  onclick="addToCart('Comprehensive Data Science Bootcamp',19999)">ADD TO CART</button>
+        </div>
+
+        <!-- Course 2 -->
+        <div class="course-card">
+            <img src="ds/pexels-cottonbro-5473955.jpg" alt="AI & Data Science for Beginners">
+            <div class="courseName">AI & Data Science for Beginners</div>
+            <div class="course-details">Mentor: Prof. Ravi Gupta</div>
+            <div class="course-details">Duration: 3 Months</div>
+            <div class="course-details">Key Focus: Python, Data Visualization</div>
+            <div class="course-price">Price: ₹9,999</div>
+            <button class="buy-button"  onclick="addToCart('AI & Data Science for Beginners',9999)">ADD TO CART</button>
+        </div>
+
+        <!-- Course 3 -->
+        <div class="course-card">
+            <img src="ds/pexels-pavel-danilyuk-8294607.jpg" alt="Advanced Machine Learning">
+            <div class="courseName">Advanced Machine Learning</div>
+            <div class="course-details">Mentor: Dr. Nisha Kulkarni</div>
+            <div class="course-details">Duration: 4 Months</div>
+            <div class="course-details">Key Focus: Neural Networks, TensorFlow</div>
+            <div class="course-price">Price: ₹14,999</div>
+            <button class="buy-button"  onclick="addToCart('Advanced Machine Learning',14999)">ADD TO CART</button>
+        </div>
+
+        <!-- Course 4 -->
+        <div class="course-card">
+            <img src="ds/pexels-asphotograpy-95916.jpg" alt="Data Analytics with Excel & Power BI">
+            <div class="courseName">Data Analytics with Excel & Power BI</div>
+            <div class="course-details">Mentor: Ms. Sneha Raj</div>
+            <div class="course-details">Duration: 2 Months</div>
+            <div class="course-details">Key Focus: Power BI, Data Visualization, Excel</div>
+            <div class="course-price">Price: ₹8,499</div>
+            <button class="buy-button"  onclick="addToCart('Data Analytics with Excel & Power BI',8499)">ADD TO CART</button>
+        </div>
+
+        <!-- Course 5 -->
+        <div class="course-card">
+            <img src="ds/pexels-tirachard-kumtanom-112571-733856.jpg" alt="Deep Learning for Professionals">
+            <div class="courseName">Deep Learning for Professionals</div>
+            <div class="course-details">Mentor: Dr. Rakesh Tiwari</div>
+            <div class="course-details">Duration: 5 Months</div>
+            <div class="course-details">Key Focus: CNNs, RNNs, PyTorch</div>
+            <div class="course-price">Price: ₹17,999</div>
+            <button class="buy-button"  onclick="addToCart('Deep Learning for Professionals',17999)">ADD TO CART</button>
+        </div>
+
+        <!-- Course 6 -->
+        <div class="course-card">
+            <img src="ds/pexels-canvastudio-3194521.jpg" alt="Data Science for Marketing">
+            <div class="courseName">Data Science for Marketing</div>
+            <div class="course-details">Mentor: Ms. Pooja Verma</div>
+            <div class="course-details">Duration: 3 Months</div>
+            <div class="course-details">Key Focus: Data-Driven Marketing, Analytics</div>
+            <div class="course-price">Price: ₹10,999</div>
+            <button class="buy-button" onclick="addToCart('Data Science for Marketing',10999)">ADD TO CART</button>
+        </div>
+
+        <!-- Course 7 -->
+        <div class="course-card">
+            <img src="ds/istockphoto-1313742211-612x612.jpg" alt="Natural Language Processing (NLP)">
+            <div class="courseName">Natural Language Processing (NLP)</div>
+            <div class="course-details">Mentor: Dr. Arvind Kumar</div>
+            <div class="course-details">Duration: 4 Months</div>
+            <div class="course-details">Key Focus: NLP, Text Analytics</div>
+            <div class="course-price">Price: ₹16,999</div>
+            <button class="buy-button"  onclick="addToCart('Natural Language Processing (NLP)',16999)">ADD TO CART</button>
+        </div>
+
+        <!-- Course 8 -->
+        <div class="course-card">
+            <img src="ds/large-895567_1280.webp" alt="Big Data & Hadoop Mastery">
+            <div class="courseName">Big Data & Hadoop Mastery</div>
+            <div class="course-details">Mentor: Prof. Nitin Sharma</div>
+            <div class="course-details">Duration: 4 Months</div>
+            <div class="course-details">Key Focus: Hadoop, Big Data Analytics</div>
+            <div class="course-price">Price: ₹18,499</div>
+            <button class="buy-button" onclick="addToCart('Big Data & Hadoop Mastery',18499)">ADD TO CART</button>
+        </div>
+
+        <!-- Course 9 -->
+        <div class="course-card">
+            <img src="ds/circuits-5896293_640.webp" alt="Data Science with R">
+            <div class="courseName">Data Science with R</div>
+            <div class="course-details">Mentor: Mr. Vivek Ahuja</div>
+            <div class="course-details">Duration: 2 Months</div>
+            <div class="course-details">Key Focus: R Programming, Data Analytics</div>
+            <div class="course-price">Price: ₹7,999</div>
+            <button class="buy-button" onclick="addToCart('Data Science with R',7999)">ADD TO CART</button>
+        </div>
+
+        <!-- Course 10 -->
+        <div class="course-card">
+            <img src="ds/Comprehensive Data Science Bootcamp (1).png" alt="Full-Stack Data Science">
+            <div class="courseName">Full-Stack Data Science</div>
+            <div class="course-details">Mentor: Dr. Meera Iyer</div>
+            <div class="course-details">Duration: 6 Months</div>
+            <div class="course-details">Key Focus: Python, SQL, Tableau, Data Engineering</div>
+            <div class="course-price">Price: ₹20,999</div>
+            <button class="buy-button" onclick="addToCart('Full-Stack Data Science',20999)">ADD TO CART</button>
+        </div>
+    </div>
+    <script>
+        function addToCart(courseName, price) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.push({ courseName, price });
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(`${courseName} has been added to your cart!`);
+            window.location.href = '/cart/cart.html'; 
+        }
+
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html> 

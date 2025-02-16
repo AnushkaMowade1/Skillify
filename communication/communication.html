@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Communication Skills Courses</title>
+    <link rel="icon" href="./favicon.png" type="image/png">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        .back-button {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+        .back-button:hover {
+            background-color: #0056b3;
+        }
+        .course-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-around;
+        }
+        .course-card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            padding: 20px;
+            text-align: center;
+        }
+        .course-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .courseName {
+            font-size: 20px;
+            color: #333;
+            margin: 15px 0;
+        }
+        .course-details {
+            font-size: 14px;
+            color: #555;
+            margin: 5px 0;
+        }
+        .course-price {
+            font-size: 18px;
+            color: #007BFF;
+            margin: 10px 0;
+        }
+        .buy-button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .buy-button:hover {
+            background-color: #218838;
+        }
+        .buy-button:disabled {
+            background-color: #ccc;
+            color: #fff;
+            cursor: not-allowed;
+        }
+        h1 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 2.5rem;
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid #007BFF;
+            padding-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Back Button -->
+    <button class="back-button" onclick="goBack()">Back</button>
+    <h1>Explore Our Communication Skills Courses</h1>
+    <div class="course-container">
+        <!-- Course 1 -->
+        <div class="course-card">
+            <img src="commu/publicspeaking.avif" alt="Public Speaking Mastery">
+            <div class="courseName">Public Speaking Mastery</div>
+            <div class="course-details">Mentor: Dr. John Doe</div>
+            <div class="course-details">Duration: 3 Months</div>
+            <div class="course-details">Key Focus: Overcoming Stage Fear, Speech Crafting</div>
+            <div class="course-price">Price: ₹6,999</div>
+            <button class="buy-button" onclick="addToCart( 'Public Speaking Mastery', 6999)">ADD TO CART</button>
+        </div>
+
+        <!-- Course 2 -->
+        <div class="course-card">
+            <img src="commu/pexels-ketut-subiyanto-4964921.jpg" alt="Confidence Building in Communication">
+            <div class="courseName">Confidence Building in Communication</div>
+            <div class="course-details">Mentor: Ms. Priya Sharma</div>
+            <div class="course-details">Duration: 2 Months</div>
+            <div class="course-details">Key Focus: Self-Esteem, Assertive Communication</div>
+            <div class="course-price">Price: ₹4,999</div>
+            <button class="buy-button" onclick="addToCart( 'Confidence Building in Communication', 4999)">ADD TO CART</button>
+        </div>
+
+        <!-- Course 3 -->
+        <div class="course-card">
+            <img src="commu/pexels-rethaferguson-3810795.jpg" alt="Negotiation Skills">
+            <div class="courseName">Negotiation Skills</div>
+            <div class="course-details">Mentor: Mr. Samir Patel</div>
+            <div class="course-details">Duration: 1 Month</div>
+            <div class="course-details">Key Focus: Win-Win Negotiation, Persuasion</div>
+            <div class="course-price">Price: ₹3,499</div>
+            <button class="buy-button" onclick="addToCart( 'Negotiation Skills', 3499)">ADD TO CART</button>
+        </div>
+
+        <!-- Course 4 -->
+        <div class="course-card">
+            <img src="commu/crossculture.jpg" alt="Cross-Cultural Communication">
+            <div class="courseName">Cross-Cultural Communication</div>
+            <div class="course-details">Mentor: Dr. Anita Mehta</div>
+            <div class="course-details">Duration: 3 Months</div>
+            <div class="course-details">Key Focus: Intercultural Sensitivity, Global Etiquette</div>
+            <div class="course-price">Price: ₹8,499</div>
+            <button class="buy-button" onclick="addToCart( 'Cross-Cultural Communication', 8499)">ADD TO CART</button>
+        </div>
+
+        <!-- Course 5 -->
+        <div class="course-card">
+            <img src="commu/active listening.jpg" alt="Active Listening Skills">
+            <div class="courseName">Active Listening Skills</div>
+            <div class="course-details">Mentor: Prof. Rajesh Kumar</div>
+            <div class="course-details">Duration: 1 Month</div>
+            <div class="course-details">Key Focus: Listening Techniques, Empathy</div>
+            <div class="course-price">Price: ₹2,999</div>
+            <button class="buy-button" onclick="addToCart( 'Active Listening Skills', 2999)">ADD TO CART</button>
+        </div>
+
+        <!-- Course 6 -->
+        <div class="course-card">
+            <img src="commu/pexels-mikael-blomkvist-6476776.jpg" alt="Effective Presentation Skills">
+            <div class="courseName">Effective Presentation Skills</div>
+            <div class="course-details">Mentor: Ms. Neha Singh</div>
+            <div class="course-details">Duration: 2 Months</div>
+            <div class="course-details">Key Focus: Visual Aids, Storytelling</div>
+            <div class="course-price">Price: ₹5,499</div>
+            <button class="buy-button" onclick="addToCart( 'Effective Presentation Skills', 5499)">ADD TO CART</button>
+        </div>
+
+        <!-- Course 7 -->
+        <div class="course-card">
+            <img src="commu/emotional intellegence.jpg" alt="Emotional Intelligence in Communication">
+            <div class="courseName">Emotional Intelligence in Communication</div>
+            <div class="course-details">Mentor: Mr. Arvind Gupta</div>
+            <div class="course-details">Duration: 2 Months</div>
+            <div class="course-details">Key Focus: Emotional Awareness, Conflict Resolution</div>
+            <div class="course-price">Price: ₹7,999</div>
+            <button class="buy-button" onclick="addToCart( 'Emotional Intelligence in Communication', 7999)">ADD TO CART</button>
+        </div>
+
+        <!-- Course 8 -->
+        <div class="course-card">
+            <img src="commu/pexels-divinetechygirl-1181406.jpg" alt="Team Communication Skills">
+            <div class="courseName">Team Communication Skills</div>
+            <div class="course-details">Mentor: Dr. Ravi Singh</div>
+            <div class="course-details">Duration: 1 Month</div>
+            <div class="course-details">Key Focus: Collaboration, Conflict Management</div>
+            <div class="course-price">Price: ₹3,999</div>
+            <button class="buy-button" onclick="addToCart( 'Team Communication Skills', 3999)">ADD TO CART</button>
+        </div>
+
+        <!-- Course 9 -->
+        <div class="course-card">
+            <img src="commu/pexels-bertellifotografia-15141200.jpg" alt="Leadership Communication">
+            <div class="courseName">Leadership Communication</div>
+            <div class="course-details">Mentor: Dr. Sunita Bhatia</div>
+            <div class="course-details">Duration: 2 Months</div>
+            <div class="course-details">Key Focus: Leadership Style, Persuasive Communication</div>
+            <div class="course-price">Price: ₹6,499</div>
+            <button class="buy-button" onclick="addToCart( 'Leadership Communication', 6499)">ADD TO CART</button>
+        </div>
+
+        <!-- Course 10 -->
+        <div class="course-card">
+            <img src="commu/pexels-karolina-grabowska-7876141.jpg" alt="Crisis Communication Skills">
+            <div class="courseName">Crisis Communication Skills</div>
+            <div class="course-details">Mentor: Ms. Meera Rani</div>
+            <div class="course-details">Duration: 1 Month</div>
+            <div class="course-details">Key Focus: Crisis Management, Media Relations</div>
+            <div class="course-price">Price: ₹4,499</div>
+            <button class="buy-button" onclick="addToCart( 'Crisis Communication Skills', 4499)">ADD TO CART</button>
+        </div>
+    </div>
+    <script>
+        function addToCart(courseName, price) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.push({ courseName, price });
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(`${courseName} has been added to your cart!`);
+            window.location.href = '/cart/cart.html'; 
+        }
+
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>
